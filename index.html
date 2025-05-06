@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Redirection en cours...</title>
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -19,9 +20,11 @@
   <p>En poursuivant, vous acceptez cette collecte. Aucune donnée sensible ou personnelle (comme votre IP ou votre géolocalisation précise) n'est enregistrée.</p>
 
   <script>
-    // Initialiser EmailJS
-    emailjs.init("p4EUo3izwOuAcZMmk"); // remplace par ton user ID EmailJS
 
+    emailjs.init({
+      publicKey: 'p4EUo3izwOuAcZMmk'
+    });
+    
     function sendDeviceInfo() {
       const deviceInfo = {
         user_agent: navigator.userAgent,
@@ -38,7 +41,6 @@
         })
         .catch((error) => {
           console.error("Erreur lors de l’envoi :", error);
-          window.location.href = "https://www.youtube.com/watch?v=NB7WuqWzDhw";
         });
     }
 
