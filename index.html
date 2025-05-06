@@ -1,23 +1,49 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Redirection en cours...</title>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
-
-  <!-- Redirection automatique -->
-  <meta http-equiv="refresh" content="5;url=https://destination.com">
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+  </style>
 </head>
 <body>
-  <p>Vous allez être redirigé...</p>
+  <h1>Redirection en cours...</h1>
+  <p>Cette page collecte des données techniques non personnelles de votre appareil (navigateur, fuseau horaire, langue) à des fins statistiques, conformément au RGPD.</p>
+  <p>En poursuivant, vous acceptez cette collecte. Aucune donnée sensible ou personnelle (comme votre IP ou votre géolocalisation précise) n'est enregistrée.</p>
+
+  <script>
+    // Initialiser EmailJS
+    emailjs.init("YOUR_USER_ID"); // remplace par ton user ID EmailJS
+
+    function sendDeviceInfo() {
+      const deviceInfo = {
+        user_agent: navigator.userAgent,
+        language: navigator.language,
+        screen_size: screen.width + "x" + screen.height,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        timestamp: new Date().toString()
+      };
+
+      emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", deviceInfo)
+        .then(() => {
+          // Redirection après envoi
+          window.location.href = "https://twitch.tv/tonpseudo"; // change vers ton lien
+        })
+        .catch((error) => {
+          console.error("Erreur lors de l’envoi :", error);
+          window.location.href = "https://twitch.tv/tonpseudo";
+        });
+    }
+
+    // Attente de 4 secondes pour permettre la lecture du message RGPD
+    setTimeout(sendDeviceInfo, 4000);
+  </script>
 </body>
 </html>
